@@ -1,3 +1,5 @@
+# http://www.pythonchallenge.com/pc/def/channel.html
+
 import os
 import zipfile
 import re
@@ -20,10 +22,10 @@ while True:
     comments.append(file.getinfo("{0}.txt".format(currentNumber)).comment.decode("utf-8"))
     
     print(line)
-    match = re.search("[0-9]+", line)
+    match = re.search("[nN]ext nothing is (\d+)", line)
     if match == None:
         break
 
-    currentNumber = match.group()
+    currentNumber = match.group(1)
 
 print("".join(comments))
