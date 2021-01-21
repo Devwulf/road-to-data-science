@@ -46,3 +46,10 @@ This challenge is similar to challenge #04, where a trail of **"nothing"** value
 The *zipfile* library is used to open the zip file and easily navigate and open the `.txt` files contained within it. Following the trail of **"nothing"** values will result in another hint to "collect the comments." 
 
 It is possible to comment files within a zip file, and these comments can be collected using `file.getinfo().comment`. Printing out these collection of comments will show another ASCII art that shows the answer.
+
+### 07
+This challenge involves processing images. The grey blocks each represent an ASCII character since their color values go from 0 to 255 and since they are grey, their rgb values are equal to each other.
+
+Using the *pillow* library, the color of a pixel can be retrieved by using `img.getpixel((x, y))`. Since the grey blocks are on the middle of the img vertically, y can be set to `img.height / 2`. The width of a grey block is 7 pixels, so the color value is stored when `value % 7 == 0` is true. Finally, the color value is converted to an ASCII character by using `chr(value)`.
+
+The message itself contains another array of numbers to be converted to ASCII characters, which is the answer.
